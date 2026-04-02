@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b3acfd89186338235c738c139ea4ee40 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b3acfd89186338235c738c139ea4ee40" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b3acfd89186338235c738c139ea4ee40 = L.map(
+                "map_b3acfd89186338235c738c139ea4ee40",
+                {
+                    center: [37.4963538, 126.9572222],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8de600a299a57a35edf1b28b1f0ecd31 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8de600a299a57a35edf1b28b1f0ecd31.addTo(map_b3acfd89186338235c738c139ea4ee40);
+        
+    
+            var marker_757e87c23d0d340ff68d7f4bab3351e1 = L.marker(
+                [37.4963538, 126.9572222],
+                {
+}
+            ).addTo(map_b3acfd89186338235c738c139ea4ee40);
+        
+    
+            var icon_470065621aa66972a8c5e71515ce3589 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6a4f9898cc325f1984ca63004e80631 = L.popup({
+  "maxWidth": 200,
+  "autoClose": false,
+});
+
+        
+            
+                var html_628f0d6054bb5ef4bc7723a0b1532b54 = $(`<div id="html_628f0d6054bb5ef4bc7723a0b1532b54" style="width: 100.0%; height: 100.0%;"><b>📍 현재 위치: 숭실대학교</b></div>`)[0];
+                popup_b6a4f9898cc325f1984ca63004e80631.setContent(html_628f0d6054bb5ef4bc7723a0b1532b54);
+            
+        
+
+        marker_757e87c23d0d340ff68d7f4bab3351e1.bindPopup(popup_b6a4f9898cc325f1984ca63004e80631)
+        .openPopup();
+
+        
+    
+    
+            marker_757e87c23d0d340ff68d7f4bab3351e1.bindTooltip(
+                `<div>
+                     숭실대학교 (중심지)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_757e87c23d0d340ff68d7f4bab3351e1.setIcon(icon_470065621aa66972a8c5e71515ce3589);
+            
+    
+            var marker_a214480ccff61075d3abe6204db48e3c = L.marker(
+                [37.4952, 126.918],
+                {
+}
+            ).addTo(map_b3acfd89186338235c738c139ea4ee40);
+        
+    
+            var icon_c5ba1ff5e8d202dc31ca626ab053fb97 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_509a7fd23a3496a9017ef34e30a76ee0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1a7dcbe8158d06344a0bd4b0f9f69a6 = $(`<div id="html_c1a7dcbe8158d06344a0bd4b0f9f69a6" style="width: 100.0%; height: 100.0%;"><b>보라매 동물병원</b><br>24시간 응급 진료 가능</div>`)[0];
+                popup_509a7fd23a3496a9017ef34e30a76ee0.setContent(html_c1a7dcbe8158d06344a0bd4b0f9f69a6);
+            
+        
+
+        marker_a214480ccff61075d3abe6204db48e3c.bindPopup(popup_509a7fd23a3496a9017ef34e30a76ee0)
+        ;
+
+        
+    
+    
+            marker_a214480ccff61075d3abe6204db48e3c.bindTooltip(
+                `<div>
+                     보라매 동물병원
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a214480ccff61075d3abe6204db48e3c.setIcon(icon_c5ba1ff5e8d202dc31ca626ab053fb97);
+            
+    
+            var marker_f03364c1ecebfef0761fb4dcb6a44b8e = L.marker(
+                [37.5125, 126.954],
+                {
+}
+            ).addTo(map_b3acfd89186338235c738c139ea4ee40);
+        
+    
+            var icon_1a752ca09ecaed783e4a86e27960aa54 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_99d34af5b5475beab88a300005542183 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45c8bb0e93c59d6b99144c3a38aa5149 = $(`<div id="html_45c8bb0e93c59d6b99144c3a38aa5149" style="width: 100.0%; height: 100.0%;"><b>노들 펫샵</b><br>프리미엄 수제 간식 및 용품 판매</div>`)[0];
+                popup_99d34af5b5475beab88a300005542183.setContent(html_45c8bb0e93c59d6b99144c3a38aa5149);
+            
+        
+
+        marker_f03364c1ecebfef0761fb4dcb6a44b8e.bindPopup(popup_99d34af5b5475beab88a300005542183)
+        ;
+
+        
+    
+    
+            marker_f03364c1ecebfef0761fb4dcb6a44b8e.bindTooltip(
+                `<div>
+                     노들 펫샵
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f03364c1ecebfef0761fb4dcb6a44b8e.setIcon(icon_1a752ca09ecaed783e4a86e27960aa54);
+            
+    
+            var marker_5bfe12bd0d45c32624ef32ddc8a4c3ea = L.marker(
+                [37.4988, 126.915],
+                {
+}
+            ).addTo(map_b3acfd89186338235c738c139ea4ee40);
+        
+    
+            var icon_a9d46ddb72bc2ee7bb2ad5b51fc9b076 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_27955a9c4e7e076261d20df65ca00131 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bfecfba9985af03f651877a999ff5802 = $(`<div id="html_bfecfba9985af03f651877a999ff5802" style="width: 100.0%; height: 100.0%;"><b>보라매공원 반려견 놀이터</b><br>무료 개방</div>`)[0];
+                popup_27955a9c4e7e076261d20df65ca00131.setContent(html_bfecfba9985af03f651877a999ff5802);
+            
+        
+
+        marker_5bfe12bd0d45c32624ef32ddc8a4c3ea.bindPopup(popup_27955a9c4e7e076261d20df65ca00131)
+        ;
+
+        
+    
+    
+            marker_5bfe12bd0d45c32624ef32ddc8a4c3ea.bindTooltip(
+                `<div>
+                     보라매공원 반려견 놀이터
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5bfe12bd0d45c32624ef32ddc8a4c3ea.setIcon(icon_a9d46ddb72bc2ee7bb2ad5b51fc9b076);
+            
+    
+            var marker_ca2214be9b33000709c9afc8e907bdb2 = L.marker(
+                [37.502, 126.945],
+                {
+}
+            ).addTo(map_b3acfd89186338235c738c139ea4ee40);
+        
+    
+            var icon_b67ae977032aac876a62fffc65950c33 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f94263359a0ef91e020b04be0fdc5114 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_02e2ea2eabd3b1af492fb8440587044e = $(`<div id="html_02e2ea2eabd3b1af492fb8440587044e" style="width: 100.0%; height: 100.0%;"><b>상도동 고양이 카페</b><br>입장료 1만원</div>`)[0];
+                popup_f94263359a0ef91e020b04be0fdc5114.setContent(html_02e2ea2eabd3b1af492fb8440587044e);
+            
+        
+
+        marker_ca2214be9b33000709c9afc8e907bdb2.bindPopup(popup_f94263359a0ef91e020b04be0fdc5114)
+        ;
+
+        
+    
+    
+            marker_ca2214be9b33000709c9afc8e907bdb2.bindTooltip(
+                `<div>
+                     상도동 고양이 카페
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ca2214be9b33000709c9afc8e907bdb2.setIcon(icon_b67ae977032aac876a62fffc65950c33);
+            
+</script>
+</html>
