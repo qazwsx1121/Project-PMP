@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-container {
+  font-size: 1rem;
+}
+</style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div id="map"></div>
+        
+</body>
+<script>
+            const params = new URLSearchParams(window.location.search);
+
+            const lat = parseFloat(params.get("lat")) || 37.4963538;
+            const lng = parseFloat(params.get("lng")) || 126.9572222;
+            console.log("🔥 지도 좌표:", lat, lng);
+            console.log("지도 위치:", lat, lng);
+    
+            var map = L.map(
+                "map",
+                {
+                    center: [lat, lng],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 14,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8de600a299a57a35edf1b28b1f0ecd31 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8de600a299a57a35edf1b28b1f0ecd31.addTo(map);
+        
+            // ✅ 현재 위치 마커 (강제 재설정)
+console.log("🔥 지도에서 받은 좌표:", lat, lng);
+
+const userMarker = L.marker([lat, lng], {
+    icon: L.AwesomeMarkers.icon({
+        markerColor: "red",
+        icon: "user",
+        prefix: "fa"
+    })
+}).addTo(map);
+
+userMarker.bindPopup("📍 현재 위치").openPopup();
+
+// ✅ 지도 중심도 강제 이동
+map.setView([lat, lng], 15);
+        
+    
+            var icon_470065621aa66972a8c5e71515ce3589 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "university",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+        
+console.log("🔥 API 요청 좌표:", lat, lng);
+fetch(`/api/nearby?lat=${lat}&lng=${lng}`)
+  .then(res => res.json())
+  .then(data => {
+    console.log("추천 장소:", data);
+
+    data.forEach((place, index) => {
+
+        const distance = Number(place.distance);
+
+        const icon = L.AwesomeMarkers.icon({
+          markerColor: index === 0 ? "red" : "blue", // 1등 강조
+          icon: "paw",
+          prefix: "fa"
+        });
+
+        const marker = L.marker([place.lat, place.lng], { icon })
+          .addTo(map);
+
+        const popupContent = `
+            <b>${index + 1}. ${place.name}</b><br>
+            거리: ${isNaN(distance) ? "-" : distance.toFixed(2) + " km"}<br>
+            평점: ${place.score}<br>
+            밝기: ${place.light}<br>
+            혼잡도: ${place.crowd}<br>
+            ${place.reason}
+        `;
+
+        marker.bindPopup(popupContent);
+    });
+  })
+  .catch(err => {
+    console.error("지도 데이터 오류:", err);
+  });
+</script>
+</html>

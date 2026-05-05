@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 산책 추천 지도</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    .top-bar {
+      display: flex;
+      gap: 10px;
+      padding: 15px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .top-bar .info-text {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .top-bar button {
+      padding: 10px 14px;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    .top-bar button:hover {
+      background-color: #43a047;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .left-panel, .right-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 0;
+      border-radius: 12px;
+      background-color: #e5e5e5;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li.place-item {
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    li.place-item:hover {
+      background-color: #f1f8f3;
+      transform: translateY(-1px);
+    }
+
+    .place-name {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .place-info {
+      font-size: 14px;
+      color: #666;
+    }
+
+    #detailBox {
+      min-height: 180px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        height: 450px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>강아지 산책 추천 지도</h1>
+  </header>
+
+  <div class="top-bar">
+    <div class="info-text">
+      C++로 생성한 CSV 데이터를 기반으로 Python Folium 지도를 시각화한 결과입니다.
+    </div>
+    <button onclick="location.reload()">지도 새로고침</button>
+  </div>
+
+  <div class="container">
+    <div class="left-panel">
+      <div class="card">
+        <h2>지도 시각화</h2>
+        <div id="loading">위치 가져오는 중...</div>
+        <iframe id="mapFrame"  title="강아지 산책 추천 지도"style="width:100%; height:600px;"></iframe>
+        <div class="footer-note">
+          ※ 먼저 C++ 프로그램과 Python 지도 생성 코드를 실행해야 최신 지도가 반영됩니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="card">
+        <h2>추천 산책 장소</h2>
+        <ul id="placeList"></ul>
+      </div>
+
+      <div class="card">
+        <h2>상세 정보</h2>
+        <div id="detailBox">오른쪽 추천 장소를 클릭하면 상세 정보가 표시됩니다.</div>
+      </div>
+    </div>
+  </div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>
